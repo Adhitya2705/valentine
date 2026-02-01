@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine 💖</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .box {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        width: 90%;
+        max-width: 350px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+        color: #d6336c;
+        margin-bottom: 25px;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        margin: 10px 0;
+        cursor: pointer;
+    }
+
+    #yes {
+        background: #ff4d6d;
+        color: white;
+    }
+
+    #no {
+        background: #adb5bd;
+        color: black;
+        position: absolute;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Will you be my Valentine? 💘</h2>
+    <button id="yes" onclick="yesClicked()">Yes ❤️</button>
+    <button id="no">No 💔</button>
+</div>
+
+<script>
+    const noBtn = document.getElementById("no");
+
+    function moveButton() {
+        const padding = 20;
+        const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+        const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
+
+    // For mobile touch
+    noBtn.addEventListener("touchstart", moveButton);
+
+    // Backup for desktop
+    noBtn.addEventListener("mouseover", moveButton);
+
+    function yesClicked() {
+        alert("YAYYY! 💖 Valentine confirmed 😍");
+    }
+</script>
+
+</body>
+</html>
